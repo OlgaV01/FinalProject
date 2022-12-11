@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    QuizMaster Home
+{% endblock %}
+
+
+{% block body %}
+
+    <div class="container">
+
+        <!-- Welcome, Human section-->
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6 mt-5 text-center" id="home-welcome-section">
+                <h1 class="display-6 fw-bold">Welcome, Human!</h1>
+                <p class=" lead fs-3 mt-3">Hello, and welcome to Quiz Master! Here you will find the tools
+                    necessary to ace your next quiz or upcoming test. Make sure to log in or
+                    create an account, as it is completely free!
+                </p>
+            </div>
+            <div class="mt-5" id="home-screen-buttons">
+                <div class="text-center">
+                    <div id="create-acct-btn">
+                        <form action="{% url "register" %}">
+                            <button type="submit" class="btn btn-warning">Create Account</button>
+                        </form>
+                    </div>
+                    <div id="login-btn">
+                        <form action="{% url "login" %}">
+                            <button type="submit" class="btn btn-warning">Log In here</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <br><br>
+        <!-- Highlight key features -->
+        <div class="row mt-5" id="key-features">
+            <!-- First Key Feature -->
+            <div class="col-lg-4 col-sm-12 mb-5">
+                <div class="card border-radius-2 shadow h-100">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Study Anywhere, Anytime</h5>
+                        <img class="img-fluid" src="{% static 'images/login.png' %}" alt="">
+                        <p class="card-text">Whether it's on your mobile phone, tablet, laptop, or desktop, we have you
+                            covered! Our versatile web-app interface makes studying as flexible as you!</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Second Key Feature -->
+            <div class="col-lg-4 col-sm-12 mb-5">
+                <div class="card border-radius-2 shadow h-100">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Create Organized Study Sets</h5>
+                        <img class="img-fluid" src="{% static 'images/study.png' %}" alt="">
+                        <p class="card-text">Take control of your studying! Organize your sets by class or subject, and
+                            add images or videos to your study sets!</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Third Key Feature -->
+            <div class="col-lg-4 col-sm-12 mb-5">
+                <div class="card border-radius-2 shadow h-100">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">No Cost = No Hassle</h5>
+                        <img class="img-fluid" src="{% static 'images/save-money.png' %}" alt="">
+                        <p class="card-text">Students are already stressed enough, so why should studying also be
+                            stressful? Our tools are made completely free to you,
+                            because knowledge should be accessible for all who want it!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

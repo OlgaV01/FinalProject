@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Create new Study Set
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Welcome Human</h1>
+        <h1>Create Study Set</h1>
+
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h1>New Study Set name</h1>
+                        <form action="{% url 'studySet' %}" method="post" novalidate>
+                            {% csrf_token %}
+                            {{ form }}
+                            <button type="submit" class="btn btn-outline-primary">Create Set</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

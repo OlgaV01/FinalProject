@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Study Sets
+{% endblock %}
+
+
+{% block body %}
+
+    <div class="container">
+        <h1>Your study sets:</h1>
+        {% for name in names %}
+            <div class="container mb-3">
+                <div class="row shadow p-3 mb-3 bg-body rounded">
+                    <div class="col-md-10">
+                        <h4><strong>{{ name.name }}</strong></h4>
+                        <p><small>Created: {{ name.created_at }}</small></p>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="{% url 'add_term' name.id %}" class="btn btn-success">
+                            <i class="fa-solid fa-plus"></i>
+                        </a>
+                        <a href="{% url 'update_set' name.id %}" class="btn btn-outline-primary">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                        </a>
+                        <a href="{% url 'delete_set' name.id %}" class="btn btn-outline-danger">
+                            <i class="fa-solid fa-x"></i></a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+                <h3>No study sets yet.</h3>
+        {% endfor %}
+    </div>
+    <br>
+    <a href="{% url 'studySet' %}" class="btn btn-success"><i class="fa-solid fa-plus"></i> Add a new study set</a>
+{% endblock %}

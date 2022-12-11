@@ -1,0 +1,40 @@
+h1,p{
+    color: pink;
+    font-family: 'Roboto', sans-serif;
+}
+body{
+    background-image: linear-gradient(blue,lightblue);
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: auto;
+}
+
+#navbar-home-link{
+    color: #7991ff;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.btn{
+    width: 150px;
+    height: 70px;
+    text-align: center;
+    display: inline;
+}
+
+.card-title{
+    color: darkslategray;
+}
+
+.card-text{
+    color: gray;
+}
+
+#create-acct-btn, #login-btn{
+    display:inline-block;
+}
+
+
