@@ -3,13 +3,14 @@ h1,p{
     font-family: 'Roboto', sans-serif;
 }
 body{
-    background-image: linear-gradient(blue,lightblue);
+    height: 100%;
+    margin: 0;
     background-repeat: no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    height: auto;
+    background-attachment: fixed;
+    background-image: linear-gradient(blue,lightblue);
+}
+html{
+    height: 100%;
 }
 
 #navbar-home-link{
@@ -36,5 +37,3 @@ body{
 #create-acct-btn, #login-btn{
     display:inline-block;
 }
-
-
