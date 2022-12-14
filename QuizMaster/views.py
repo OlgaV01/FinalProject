@@ -75,9 +75,9 @@ def delete(request):
 
 
 @login_required(login_url="login")
-def add(request, name_id):
-    name = StudySetTerms.objects.get(id=name_id)
-    form = TermForm(request.POST or None, instance=name)
+def add(request, user_id):
+    name = StudySetTerms.objects.get(study_set=user_id)
+    form = TermForm(request.POST or None, instance=name, auto_id=False)
     if form.is_valid():
         form.instance.user = request.user
         form.save()
