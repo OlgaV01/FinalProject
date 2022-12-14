@@ -5,7 +5,7 @@ from django.contrib.auth import login as login_process
 
 from QuizMaster.forms import StudyForm
 from QuizMaster.models import StudySet
-from QuizMaster.models import StudySetTerms
+from QuizMaster.models import Questions
 from QuizMaster.forms import TermForm
 
 
@@ -75,11 +75,15 @@ def delete(request):
 
 
 @login_required(login_url="login")
-def add(request, user_id):
-    name = StudySetTerms.objects.get(study_set=user_id)
-    form = TermForm(request.POST or None, instance=name, auto_id=False)
-    if form.is_valid():
-        form.instance.user = request.user
-        form.save()
-        return redirect('add_term')
-    return render(request, 'term_and_definition.html', {'form': form})
+def add(request, study_set_id):
+    name = StudySet.objects.get(id=study_set_id)
+    form = TermForm(request.POST or None)
+    if request.method == 'POST':
+
+        if form.is_valid():
+            form.instance.study_set = name
+            form.instance.user = request.user
+            form.save()
+            return redirect('add_term', name.id)
+    terms = Questions.objects.filter(study_set=name)
+    return render(request, 'term_and_definition.html', {'form': form, 'name': name, 'terms': terms})

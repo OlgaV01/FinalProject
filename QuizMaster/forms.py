@@ -1,7 +1,7 @@
 from django import forms
 
 from QuizMaster.models import StudySet
-from QuizMaster.models import StudySetTerms
+from QuizMaster.models import Questions
 
 
 # from django.contrib.auth.forms import UserCreationForm
@@ -20,7 +20,7 @@ class StudyForm(forms.ModelForm):
 
 class TermForm(forms.ModelForm):
     class Meta:
-        model = StudySetTerms
-        fields = "__all__"
+        model = Questions
+        exclude = ['user', 'study_set']
 
 
