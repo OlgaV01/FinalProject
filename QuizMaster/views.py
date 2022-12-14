@@ -5,6 +5,8 @@ from django.contrib.auth import login as login_process
 
 from QuizMaster.forms import StudyForm
 from QuizMaster.models import StudySet
+from QuizMaster.models import StudySetTerms
+from QuizMaster.forms import TermForm
 
 
 # from .forms import RegisterUserForm
@@ -72,5 +74,14 @@ def delete(request):
     return None
 
 
-def add(request):
-    return None
+@login_required(login_url="login")
+def add(request, name_id):
+    if request.method == 'POST':
+        form = TermForm(request.POST or None, auto_id=name_id)
+        if form.is_valid():
+            form.instance.user = request.user
+            form.save()
+            return redirect('add_term')
+    else:
+        form = TermForm()
+    return render(request, 'term_and_definition.html', {'form': form})

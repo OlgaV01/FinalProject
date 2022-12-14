@@ -11,4 +11,5 @@ urlpatterns = [
     path('index/', views.index, name="index"),
     path('add/<int:name_id>', views.add, name="add_term"),
 
+
 ]

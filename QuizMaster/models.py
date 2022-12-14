@@ -6,3 +6,8 @@ class StudySet(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
+
+
+class StudySetTerms(models.Model):
+    term = models.CharField(max_length=100)
+    definition = models.CharField(max_length=1000)
