@@ -18,7 +18,7 @@
                         <p><small>Created: {{ name.created_at }}</small></p>
                     </div>
                     <div class="col-md-2">
-                        <a href="{% url 'add_term' name.id %}" class="btn btn-success">
+                        <a href="{% url "add_term" name.id %}" class="btn btn-success">
                             <i class="fa-solid fa-plus"></i>
                         </a>
                         <a href="{% url 'update_set' name.id %}" class="btn btn-outline-primary">

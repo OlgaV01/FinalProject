@@ -76,12 +76,10 @@ def delete(request):
 
 @login_required(login_url="login")
 def add(request, name_id):
-    if request.method == 'POST':
-        form = TermForm(request.POST or None, auto_id=name_id)
-        if form.is_valid():
-            form.instance.user = request.user
-            form.save()
-            return redirect('add_term')
-    else:
-        form = TermForm()
+    name = StudySetTerms.objects.get(id=name_id)
+    form = TermForm(request.POST or None, instance=name)
+    if form.is_valid():
+        form.instance.user = request.user
+        form.save()
+        return redirect('add_term')
     return render(request, 'term_and_definition.html', {'form': form})

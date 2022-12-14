@@ -9,5 +9,6 @@ class StudySet(models.Model):
 
 
 class StudySetTerms(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     term = models.CharField(max_length=100)
     definition = models.CharField(max_length=1000)
