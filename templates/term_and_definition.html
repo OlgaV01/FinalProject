@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Create Term and Definition
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Welcome Human</h1>
+
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h1>New Term and Definition</h1>
+                        <form action="{% url 'add_term' name_id %}" method="post" novalidate>
+                            {% csrf_token %}
+                            {{ form.term }}
+                            {{ form.definition }}
+                            <button type="submit" class="btn btn-outline-primary">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
