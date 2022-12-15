@@ -65,13 +65,24 @@ def index(request):
 
 
 @login_required(login_url="login")
-def update(request):
-    return None
+def update_study_set(request, study_set_id):
+    name = StudySet.objects.get(id=study_set_id, user=request.user)
+    if request.method == 'POST':
+        form = StudyForm(request.POST, request.FILES, instance=name)
+        if form.is_valid():
+            form.instance.user = request.user
+            form.save()
+            return redirect('index')
+    else:
+        form = StudyForm(instance=name)
+    return render(request, 'update_study_set.html', {'form': form})
 
 
 @login_required(login_url="login")
-def delete(request):
-    return None
+def delete_study_set(request, study_set_id):
+    task = StudySet.objects.get(id=study_set_id)
+    task.delete()
+    return redirect('index')
 
 
 @login_required(login_url="login")

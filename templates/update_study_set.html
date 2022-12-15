@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Update Your Study Set
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Welcome Human</h1>
+        <h1>Update your study set here</h1>
+
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h1>Update Set name</h1>
+                        <form action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form }}
+                            <button type="submit" class="btn btn-outline-primary">Update</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
