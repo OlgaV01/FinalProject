@@ -2,6 +2,14 @@ h1,p{
     color: pink;
     font-family: 'Roboto', sans-serif;
 }
+#flash_name{
+    color: blue;
+    font-family: 'Roboto', sans-serif;
+}
+#flash_def{
+    color: hotpink;
+    font-family: 'Roboto', sans-serif;
+}
 body{
     height: 100%;
     margin: 0;
@@ -36,4 +44,12 @@ html{
 
 #create-acct-btn, #login-btn{
     display:inline-block;
+}
+
+.speed{
+    animation-duration: 1s;
+}
+
+.flashcard{
+    cursor: pointer;
 }
