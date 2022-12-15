@@ -7,11 +7,11 @@ h1,p{
     color: #7991ff;
     font-family: 'Roboto', sans-serif;
 }
-#flash_name{
+.flash_name{
     color: blue;
     font-family: 'Roboto', sans-serif;
 }
-#flash_def{
+.flash_def{
     color: hotpink;
     font-family: 'Roboto', sans-serif;
 }
