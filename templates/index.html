@@ -7,7 +7,6 @@
 
 
 {% block body %}
-
     <div class="container">
         <h1>Your study sets:</h1>
         {% for name in names %}
@@ -17,15 +16,27 @@
                         <h4><strong>{{ name.name }}</strong></h4>
                         <p><small>Created: {{ name.created_at }}</small></p>
                     </div>
-                    <div class="col d-flex justify-content-end">
-                        <a href="{% url "add_term" name.id %}" class="btn btn-success"> Add/study terms <br>
-                            <i class="fa-solid fa-plus"></i>
-                        </a>
-                        <a href="{% url 'update_set' name.id %}" class="btn btn-primary"> Update Set <br>
-                            <i class="fa-regular fa-pen-to-square"></i>
-                        </a>
-                        <a href="{% url 'delete_set' name.id %}" class="btn btn-danger"> Delete Set <br>
-                            <i class="fa-solid fa-trash"></i></a>
+                    <div class="col-sm-12 d-flex justify-content-end">
+
+                            <a href="{% url "add_term" name.id %}" class="btn btn-success"> Add term(s) <br>
+                                <i class="fa-solid fa-plus"></i>
+                            </a>
+
+
+
+                            <a href="{% url 'update_set' name.id %}" class="btn btn-primary mx-2"> Update Set <br>
+                                <i class="fa-regular fa-pen-to-square"></i>
+                            </a>
+
+
+
+                            <a href="{% url 'delete_set' name.id %}" class="btn btn-danger"> Delete Set <br>
+                                <i class="fa-solid fa-trash"></i>
+                            </a>
+
+
+
+
                     </div>
                 </div>
             </div>

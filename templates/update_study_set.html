@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
+
 
 {% block title %}
     Update Your Study Set
@@ -7,22 +9,20 @@
 
 {% block body %}
     <div class="container">
-        <h1>Welcome Human</h1>
-        <h1>Update your study set here</h1>
 
-        <div class="row justify-content-center">
-            <div class="col-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h1>Update Set name</h1>
-                        <form action="" method="post" enctype="multipart/form-data">
-                            {% csrf_token %}
-                            {{ form }}
-                            <button type="submit" class="btn btn-primary"><i class="fa-regular fa-pen-to-square"></i> Update</button>
-                        </form>
-                    </div>
-                </div>
+        <div class="row justify-content-center mt-5">
+            <div class="col-lg-6 col-sm-12">
+
+                <h1>Update Set name</h1>
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <br>
+                    <button type="submit" class="btn btn-primary"><i class="fa-regular fa-pen-to-square"></i> Update</button>
+                </form>
+
             </div>
+
         </div>
     </div>
 

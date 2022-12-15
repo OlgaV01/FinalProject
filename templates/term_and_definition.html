@@ -1,43 +1,48 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
+
 
 {% block title %}
     Create Term and Definition
 {% endblock %}
 
 {% block body %}
-    <div class="container">
-        <div class="row justify-content-center text-center">
-            <div class="col-6">
+    <div class="container mb-3">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-sm-12">
                 <h1>New Term and Definition</h1>
                 <form action="" method="post">
                     {% csrf_token %}
-                    {{ form.as_p }}
+                    {{ form|crispy }}
+                    <br>
                     <button type="submit" class="btn btn-success"><i class="fa-solid fa-floppy-disk"></i> Save</button>
                 </form>
             </div>
         </div>
-    <div class="row justify-content-center">
-        {% for term in terms %}
-            <div class="col-md-4 shadow p-3 m-3 bg-body rounded justify-content-center">
-                <div class="flashcard">
-                    <div class="p-3 front">
-                        <h3 id="flash_name">{{ term.term }}</h3>
-                    </div>
-                    <div class="p-3 back">
-                        <h3 id="flash_def">{{ term.definition }}</h3>
+
+        <div class="row justify-content-center">
+            {% for term in terms %}
+                <div class="col-md-4 shadow p-3 m-3 bg-body rounded justify-content-center">
+                    <div class="flashcard">
+                        <div class="p-3 front">
+                            <h3 id="flash_name">{{ term.term }}</h3>
+                        </div>
+                        <div class="p-3 back">
+                            <h3 id="flash_def">{{ term.definition }}</h3>
+                        </div>
                     </div>
                 </div>
-            </div>
-        {% endfor %}
-    </div>
+            {% endfor %}
+        </div>
 
-        <div class="row">
-            <div class="col">
+        <div class="row justify-content-center mt-3">
+            <div class="col-lg-6 col-sm-12">
                 <form action={% url 'index' %} >
                     <button type="submit" class="btn btn-secondary"><i class="fa-solid fa-arrow-left"></i> Go back</button>
                 </form>
             </div>
         </div>
+
     </div>
 {% endblock %}

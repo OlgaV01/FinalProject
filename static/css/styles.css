@@ -2,6 +2,11 @@ h1,p{
     color: pink;
     font-family: 'Roboto', sans-serif;
 }
+
+#register-h2{
+    color: #7991ff;
+    font-family: 'Roboto', sans-serif;
+}
 #flash_name{
     color: blue;
     font-family: 'Roboto', sans-serif;
